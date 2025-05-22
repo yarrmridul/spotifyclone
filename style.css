@@ -28,17 +28,21 @@
 .music-player{
     background-color: #121212;
     flex:1; /* 1 means it will take the remaining space */
+    border-radius: 1rem;
+    overflow: auto; /* auto means it will scroll if the content is too long */
+    padding: 0 1.5rem;
+    padding-bottom: 72px; /* Prevent content from being hidden behind the fixed main-content */
+    position: relative; /* Ensure sticky children work as expected */
 }
 
 .main-content{
-    background-color: #121212;
-   position:fixed; /* fixed means its position will always be fixed */
-   bottom: 0; /* 0 means it will be at the bottom of the page */
-   width: 100%; /* 100% means it will take the full width of the page */
-   height: 72px;
-   border-radius: 1rem;
-   overflow: auto;/* auto means it will scroll if the content is too long */
-
+    background-color: #000000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 72px;
+    left: 0;
+    z-index: 100;
 }
 
 a{
@@ -50,10 +54,10 @@ a{
 .nav{
     background-color: #121212;
     border-radius: 1rem; 
-    display: flex; /* flex will make the items inside the div to be in a row */
-    flex-direction: column; /* flex-direction will make the items inside the div to be in a column */
-    justify-content: center ;
-    height: 100px;
+    display: flex !important; /* flex will make the items inside the div to be in a row */
+    flex-direction: column !important; /* flex-direction will make the items inside the div to be in a column */
+    justify-content: flex-start;
+    height: auto;
     padding: 0.5rem 0.75rem;
 } 
 
@@ -62,6 +66,8 @@ a{
     line-height: 2.5rem;
     opacity:0.7;
     padding: 8px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-option:hover{ /* :hover means when we hover over the element */
@@ -143,4 +149,129 @@ opacity: 0.7;
 
 .box2{
     margin-top: 0.85rem;
+}
+
+.sticky-nav{
+    position: sticky; /* sticky means it will stick to the top of the page */
+    top:0;
+    background-color: #121212;
+    display: flex;
+    justify-content: space-between; /* space-between will make the items inside the div to be in a row and space them out */
+    align-items: center; /* align-items will make the items inside the div to be in a column */
+    padding: 1rem 0 1rem 0;
+    z-index: 10; /* Ensure sticky nav stays above cards */
+}
+
+.sticky-nav-options{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* align-items will make the items inside the div to be in a column */
+}
+.sticky-nav-options button{
+    margin-right: 1rem;
+}
+
+.sticky-nav-options i{
+    margin-right: 1rem;
+    vertical-align: middle;
+    font-size: 1.1rem;
+    /* Remove extra margin for the last icon */
+}
+.sticky-nav-options > i:last-child {
+    margin-right: 0.75rem;
+    margin-left: 0.5rem;
+    font-size: 1.3rem;
+    align-self: center;
+}
+
+.sticky-nav-options button i {
+    color: black;
+}
+.user{
+    padding-top: 0.5rem;;
+    padding-right: 1rem;
+}
+.dark-badge{
+    background-color: black;
+    color: white;
+}
+.dark-badge,
+.dark-badge i {
+    color: white !important;
+}
+.dark-badge i {
+    margin-right: 0.4em !important;
+}
+.sticky-nav-icons{
+   margin: 0.75rem;
+}
+
+.sticky-nav-icons img:hover{
+    opacity: 0.5;
+}
+
+.sticky-nav-options button:hover{
+    
+    border-radius: 0.75rem;
+    color: white;
+    transform: scale(1.1);
+    transition: transform 0.1s;
+}
+
+@media(max-width:1000px){
+    .hide{
+        display: none;
+    }
+}
+
+.card{
+    background-color: #232323;
+    width: 150px;
+    border-radius: 0.5rem;
+    padding: 0.7rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top:1rem;
+
+}
+
+.cards-container{
+    display: flex;
+    flex-wrap: wrap; /* flex-wrap will make the items inside the div to be in a row and wrap them if they are too long */
+    width: 100%;
+}
+
+.card-img{
+    width: 100%;
+    border-radius: 0.5rem;
+
+}
+
+.card-title{
+    font-weight: 600;
+    font-size: .95rem;
+    padding-top: .85rem;
+}
+
+.card-info{
+    font-size: 0.75rem;
+    opacity: 0.75;
+}
+
+.footer{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.line {
+    height: 2px;
+    width: 90%;
+    background: #fff;
+    margin: 1rem auto;
+    border: none;
+    display: block;
 }
